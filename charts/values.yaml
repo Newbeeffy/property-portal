@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: interview/property-portal
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Backend service URLs, read at runtime by the BFF proxy and server components.
+estimatorBackendUrl: "http://property-value-estimator-svc"
+analysisBackendUrl: "http://property-market-analysis-svc"
+
+ingress:
+  host: "property-portal.local"
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
